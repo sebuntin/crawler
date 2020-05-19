@@ -7,7 +7,7 @@ import (
 
 type Scheduler interface {
 	Submit(Request)
-	ConfigureMasterWorkChan(chan Request)
+	WorkChan() chan Request
 	WorkReady(chan Request)
 	Run()
 }
@@ -35,7 +35,7 @@ func (e ConcurrentEngine) Run(seed ...Request) {
 		result := <-out
 		for _, item := range result.Items {
 			log.Printf("item: %v, count: %d\n", item, count)
-			count ++
+			count++
 		}
 
 		for _, r := range result.Requests {
@@ -45,7 +45,7 @@ func (e ConcurrentEngine) Run(seed ...Request) {
 }
 
 func creatWorker(scheduler Scheduler, out chan ParserResult) {
-	in := make(chan Request)
+	in := scheduler.WorkChan()
 	go func() {
 		for {
 			scheduler.WorkReady(in)

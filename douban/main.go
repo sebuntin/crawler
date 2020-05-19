@@ -1,8 +1,8 @@
 package main
 
 import (
-	"engine"
 	"doubanparser"
+	"engine"
 	"scheduler"
 )
 
@@ -10,7 +10,7 @@ const SEEDURL = "https://book.douban.com/tag/?view=type&icn=index-sorttags-all"
 
 func main() {
 	e := engine.ConcurrentEngine{
-		Scheduler:  &scheduler.QueuedScheduler{},
+		Scheduler:  &scheduler.SimpleScheduler{},
 		NumWorkers: 10,
 	}
 	e.Run(engine.Request{

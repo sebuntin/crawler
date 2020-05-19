@@ -2,51 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="32210730-9ddc-4c47-98fd-3490f8ae8412" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crawler.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/douban/doubanparser/book.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/douban/doubanparser/bookList.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/douban/doubanparser/bookList_test.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/douban/doubanparser/bookTag.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/douban/doubanparser/bookTag_test.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/douban/doubanparser/book_test.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/douban/doubanparser/go.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/douban/doubanparser/go.sum" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/douban/go.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/douban/go.sum" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/douban/main.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/concurrent.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/go.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/go.sum" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/simple.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/types.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fetcher/fetcher.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fetcher/fetcher_test.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fetcher/go.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fetcher/go.sum" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/book.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/go.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/profile.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scheduler/go.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scheduler/go.sum" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scheduler/queued.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scheduler/simple.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zhenai/go.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zhenai/go.sum" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zhenai/main.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zhenai/parser/city.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zhenai/parser/cityList.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zhenai/parser/cityList_test.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zhenai/parser/city_test.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zhenai/parser/cityfile.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zhenai/parser/citylist.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zhenai/parser/go.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zhenai/parser/go.sum" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zhenai/parser/profile.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zhenai/zhenai.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/douban/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/douban/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/concurrent.go" beforeDir="false" afterPath="$PROJECT_DIR$/engine/concurrent.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/engine/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/queued.go" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/queued.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/simple.go" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/simple.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +39,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="go.vgo" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -164,21 +125,33 @@
       <workItem from="1589705688824" duration="20425000" />
       <workItem from="1589765384113" duration="35014000" />
       <workItem from="1589861817975" duration="1530000" />
+      <workItem from="1589867947823" duration="3132000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
     <proxy>https://goproxy.cn/</proxy>
   </component>
   <component name="WindowStateProjectService">
-    <state x="492" y="215" key="FileChooserDialogImpl" timestamp="1589679439251">
+    <state x="492" y="215" key="FileChooserDialogImpl" timestamp="1589868279026">
       <screen x="0" y="31" width="1440" height="929" />
     </state>
-    <state x="492" y="215" key="FileChooserDialogImpl/0.31.1440.929@0.31.1440.929" timestamp="1589679439251" />
+    <state x="492" y="215" key="FileChooserDialogImpl/0.31.1440.929@0.31.1440.929" timestamp="1589868279026" />
     <state width="1397" height="772" key="GridCell.Tab.0.bottom" timestamp="1589818091485">
       <screen x="0" y="31" width="1440" height="929" />
     </state>
@@ -195,14 +168,14 @@
       <screen x="0" y="31" width="1440" height="929" />
     </state>
     <state width="1397" height="772" key="GridCell.Tab.0.right/0.31.1440.929@0.31.1440.929" timestamp="1589818091485" />
-    <state x="222" y="137" key="SettingsEditor" timestamp="1589640007178">
+    <state x="238" y="109" key="SettingsEditor" timestamp="1589869350750">
       <screen x="0" y="31" width="1440" height="929" />
     </state>
-    <state x="222" y="137" key="SettingsEditor/0.31.1440.929@0.31.1440.929" timestamp="1589640007178" />
-    <state x="405" y="319" key="com.intellij.ide.util.TipDialog" timestamp="1589861820728">
+    <state x="238" y="109" key="SettingsEditor/0.31.1440.929@0.31.1440.929" timestamp="1589869350750" />
+    <state x="405" y="319" key="com.intellij.ide.util.TipDialog" timestamp="1589867952134">
       <screen x="0" y="31" width="1440" height="929" />
     </state>
-    <state x="405" y="319" key="com.intellij.ide.util.TipDialog/0.31.1440.929@0.31.1440.929" timestamp="1589861820728" />
+    <state x="405" y="319" key="com.intellij.ide.util.TipDialog/0.31.1440.929@0.31.1440.929" timestamp="1589867952134" />
     <state x="383" y="229" width="672" height="678" key="search.everywhere.popup" timestamp="1589817226963">
       <screen x="0" y="31" width="1440" height="929" />
     </state>
