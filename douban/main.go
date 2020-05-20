@@ -3,20 +3,24 @@ package main
 import (
 	"doubanparser"
 	"engine"
+	"persist"
 	"scheduler"
 )
 
 const SEEDURL = "https://book.douban.com/tag/?view=type&icn=index-sorttags-all"
+const HeadURL = "https://book.douban.com"
+const Prefix = "https://book.douban.com"
 
 func main() {
 	e := engine.ConcurrentEngine{
-		Scheduler:  &scheduler.SimpleScheduler{},
-		NumWorkers: 10,
+		Scheduler:  &scheduler.QueuedScheduler{},
+		NumWorkers: 1,
+		ItemChan:persist.ItemSaver(),
 	}
 	e.Run(engine.Request{
-		URL: SEEDURL,
+		CurURL: SEEDURL,
 		ParserFunc: func(content []byte) engine.ParserResult {
-			return doubanparser.ParseBookTag(content, "https://book.douban.com")
+			return doubanparser.ParseBookTag(content, Prefix, HeadURL)
 		},
 	})
 }

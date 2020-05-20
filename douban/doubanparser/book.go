@@ -13,6 +13,7 @@ import (
  */
 var (
 	AuthorRe      = regexp.MustCompile(`<a href="https://book.douban.com/author/[\d]+/">([^<]*)</a>`)
+	IdRe          = regexp.MustCompile(`https://book.douban.com/subject/([\d]+)/`)
 	PressRe       = regexp.MustCompile(`<span class="pl">出版社:</span> ([^<]*)<br/>`)
 	OrigNameRe    = regexp.MustCompile(`<span class="pl">原作名:</span> ([^<]*)<br/>`)
 	PageNumRe     = regexp.MustCompile(`<span class="pl">页数:</span> ([\d]+)<br/>`)
@@ -21,9 +22,10 @@ var (
 	DoubanScoreRe = regexp.MustCompile(`<strong class="ll rating_num " property="v:average">\s+([^\s]*)\s+</strong>`)
 )
 
-func ParseBookInfo(content []byte, name string) engine.ParserResult {
+func ParseBookInfo(content []byte, name, url string) engine.ParserResult {
 	bookinfo := model.Book{}
 	bookinfo.Name = name
+	bookid := extractString([]byte(url), IdRe)
 	author := extractString(content, AuthorRe)
 	// 去除空格
 	author = strings.Replace(author, " ", "", -1)
@@ -35,14 +37,19 @@ func ParseBookInfo(content []byte, name string) engine.ParserResult {
 	intro := extractAllString(content, IntroRe)
 	briefIntro := strings.Replace(intro[0], "<p>", "", -1)
 	briefIntro = strings.Replace(briefIntro, "</p>", "", -1)
-	authorIntro:= strings.Replace(intro[1], "<p>", "", -1)
-	authorIntro= strings.Replace(authorIntro, "</p>", "", -1)
+	authorIntro := strings.Replace(intro[1], "<p>", "", -1)
+	authorIntro = strings.Replace(authorIntro, "</p>", "", -1)
 	bookinfo.BriefIntro = briefIntro
 	bookinfo.AuthorIntro = authorIntro
-	bookinfo.DoubanScore = extractString(content, DoubanScoreRe)
+	scoreStr := extractString(content, DoubanScoreRe)
+	score, err := strconv.ParseFloat(scoreStr, 10)
+	if err != nil {
+		score = 0
+	}
+	bookinfo.DoubanScore = score
 	bookinfo.PageNum = extractInt(content, PageNumRe)
 	return engine.ParserResult{
-		Items: []interface{}{bookinfo},
+		Items: []interface{}{engine.Item{Url: url, Id: bookid, PayLoad: bookinfo}},
 	}
 }
 

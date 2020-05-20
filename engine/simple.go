@@ -16,7 +16,7 @@ func SimpleRun(timeDelay int, seeds ...Request) {
 	for len(requests) != 0 {
 		r := requests[0]
 		requests = requests[1:]
-		log.Printf("Parsing URL:%s", r.URL)
+		log.Printf("Parsing URL:%s", r.CurURL)
 		parserResult, err := worker(r)
 		if err != nil {
 			log.Print(err)

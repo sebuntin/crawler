@@ -14,6 +14,7 @@ type Scheduler interface {
 
 type ConcurrentEngine struct {
 	Scheduler  Scheduler
+	ItemChan chan interface{}
 	NumWorkers int
 }
 
@@ -24,22 +25,31 @@ func (e ConcurrentEngine) Run(seed ...Request) {
 	e.Scheduler.Run()
 	// 将种子请求放入RequestChan中
 	for _, r := range seed {
-		e.Scheduler.Submit(r)
+		if isDuplicate(r.CurURL) {
+			e.Scheduler.Submit(r)
+		}
 	}
 	// 创建worker
 	for i := 0; i < e.NumWorkers; i++ {
 		creatWorker(e.Scheduler, out)
 	}
-	var count int
+	//var count int
 	for {
 		result := <-out
 		for _, item := range result.Items {
-			log.Printf("item: %v, count: %d\n", item, count)
-			count++
+			//count ++
+			//log.Printf("item: %v, count: %d\n", item, count)
+			// 这里需要注意不能写成
+			// go func() {c <- item} ()
+			// 由于闭包函数内使用的外部变量,会受到外部影响。
+			go func(c chan interface{},
+			item interface{}) {c <- item}(e.ItemChan, item)
 		}
 
 		for _, r := range result.Requests {
-			e.Scheduler.Submit(r)
+			if isDuplicate(r.CurURL) {
+				e.Scheduler.Submit(r)
+			}
 		}
 	}
 }
@@ -59,4 +69,14 @@ func creatWorker(scheduler Scheduler, out chan ParserResult) {
 			out <- result
 		}
 	}()
+}
+
+var visitedUrls = make(map[string]bool)
+
+func isDuplicate(url string) bool {
+	if visitedUrls[url] {
+		return false
+	}
+	visitedUrls[url] = true
+	return true
 }

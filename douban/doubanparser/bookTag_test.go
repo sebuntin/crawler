@@ -14,7 +14,7 @@ func TestParseBookTag(t *testing.T) {
 		t.Fail()
 	}
 	doubanPrefix := "https://book.douban.com/"
-	parseRet := ParseBookTag(body, doubanPrefix)
+	parseRet := ParseBookTag(body, doubanPrefix, doubanPrefix)
 	for _, item := range parseRet.Items {
 		fmt.Printf("Tag: %s\n", item)
 	}
