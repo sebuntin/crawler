@@ -9,7 +9,7 @@ require (
 )
 
 replace (
-	engine v0.0.0 => ../engine
-	fetcher v0.0.0 => ../fetcher
-	model v0.0.0 => ../model
+	engine v0.0.0 => ../../engine
+	fetcher v0.0.0 => ../../fetcher
+	model v0.0.0 => ../../model
 )

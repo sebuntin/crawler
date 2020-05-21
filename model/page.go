@@ -8,4 +8,5 @@ type SearchResult struct {
 	Query string
 	PrevFrom int
 	NextFrom int
+	LastFrom int
 }

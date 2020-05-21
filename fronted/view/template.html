@@ -80,10 +80,12 @@
                 <!--执行上下页-->
                 <div align="middle">
                     <!--上一页不能为负-->
+                    <a href="search?q={{.Query}}&from=0">首页...</a>
                     {{if ge .PrevFrom 0}}
                         <a href="search?q={{.Query}}&from={{.PrevFrom}}">上一页</a>
                     {{end}}
                     <a href="search?q={{.Query}}&from={{.NextFrom}}">下一页</a>
+                    <a href="search?q={{.Query}}&from={{.LastFrom}}">...尾页</a>
                 </div>
             </div>
         </div>
